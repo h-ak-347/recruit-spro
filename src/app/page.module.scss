@@ -1,0 +1,177 @@
+.top-page {
+  background-color: #fff;
+}
+
+.header {
+  padding: 20px 0;
+  border-bottom: 2px solid #000;
+
+  @media only screen and (max-width: 751px) {
+    display: none;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__sub-navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    padding: 10px;
+  }
+
+  &__sub-navigation-item {
+    & + & {
+      margin-left: 50px;
+    }
+  }
+
+  &__sub-navigation-link {
+    &:hover {
+      transition: opacity 0.15s linear 0s;
+      opacity: 0.6;
+    }
+  }
+
+  &__main-navigation {
+    margin-top: 20px;
+    padding: 0 40px;
+    display: flex;
+  }
+  &__main-navigation-item {
+    & + & {
+      margin-left: 100px;
+    }
+  }
+  &__main-navigation-link {
+    display: inline-block;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #ccc;
+      width: 0;
+    }
+
+    &:hover::after {
+      transition: width 0.2s linear 0s;
+      width: 100%;
+    }
+  }
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+
+  @media not screen and (max-width: 750px) {
+    display: none;
+  }
+
+  &__humburger {
+    border: none;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  text-align: center;
+
+  &[data-type="primary"] {
+    background-color: #26a;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #26a;
+
+    &:hover {
+      transition: background-color 0.15s linear 0s, color 0.15s linear 0s;
+      background: #fff;
+      color: #26a;
+    }
+  }
+
+  &[data-type="secondary"] {
+    border: 1px solid #6ae;
+
+    &:hover {
+      transition: background-color 0.15s linear 0s;
+      background: #def;
+    }
+  }
+
+  &[data-width-mobile="full"] {
+    @media only screen and (max-width: 750px) {
+      width: 100%;
+    }
+  }
+}
+
+.container {
+  max-width: 100%;
+  width: 1200px;
+  margin: auto;
+}
+
+.main-visual {
+  position: relative;
+
+  &__upper {
+    position: relative;
+    height: 600px;
+    background-color: #ccc;
+
+    @media only screen and (max-width: 750px) {
+      height: 400px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 20%;
+
+    @media not screen and (max-width: 750px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media only screen and (max-width: 750px) {
+      margin: 0 20px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__lower {
+    overflow: hidden;
+    display: flex;
+  }
+
+  &__lower-belt {
+    flex: 0 0 100vw;
+    animation: infinity-scroll-left 95s infinite linear 0.5s both;
+    height: 400px;
+    background: linear-gradient(to right, #ccc 0, #26a 50%, #ccc 100%);
+
+    @media only screen and (max-width: 750px) {
+      height: 300px;
+    }
+  }
+
+  @keyframes infinity-scroll-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
